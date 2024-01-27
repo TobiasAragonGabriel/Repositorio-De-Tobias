@@ -1,0 +1,45 @@
+.dashboard-container {
+    height:100vh;
+    background-color: rgb(181, 240, 154);
+    width:100%;
+  }
+
+  .dashboard-sidenav{
+    width:30vh;
+    background-color: rgb(50, 204, 127);
+    border-width: 3px;
+    border-color:white;
+  }
+
+  .logoImg{
+    width: 4rem;
+    height: auto;
+  }
+  @font-face {
+    font-family: 'Abril Fatface';
+    src: url('../../../assets/fonts/AbrilFatface-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+  .logo{
+    font-family: 'Abril Fatface' ;
+    font-size: 40px;
+    color: white;
+    margin-left:15px;
+  }
+
+  .avatar {
+    width: 200px;
+    height: auto;
+    margin: auto;
+    display: block;
+    margin-top:20px;
+  }
+
+  .opciones{
+    color:white;
+    font-size: 20px;
+    margin-bottom: 20px;
+    display: flex; 
+    align-items: center;
+  }

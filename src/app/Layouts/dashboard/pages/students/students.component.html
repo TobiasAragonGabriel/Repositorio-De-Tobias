@@ -1,0 +1,56 @@
+<mat-tab-group #tabGroup>
+    <mat-tab appTamTitulos label="Lista de Estudiantes Cargados">
+        <br>
+        <div class="mat-row">
+            
+            <div class="mat-column">
+                <div class="filter-container">
+                    <mat-form-field>
+                        <mat-label>Seleccionar Año del Alumno</mat-label>
+                        <mat-select #yearSelect (valueChange)="applyYearFilter()" [value]="selectedYear">
+                            <mat-option *ngFor="let year of years" [value]="year.value">{{year.viewValue}}</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+            </div>
+        </div>
+
+        <div class="table-container">
+            <table mat-table [dataSource]="filteredDataSource" class="mat-elevation-z8 demo-table">
+
+                <ng-container matColumnDef="demo-nombre">
+                    <th mat-header-cell *matHeaderCellDef appTamTitulos> Nombre y Apellido del Alumno</th>
+                    <td mat-cell *matCellDef="let element"> {{element | fullName}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="demo-telefono">
+                    <th mat-header-cell *matHeaderCellDef appTamTitulos> Telefono </th>
+                    <td mat-cell *matCellDef="let element"> {{element.Telefono}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="demo-correo">
+                    <th mat-header-cell *matHeaderCellDef appTamTitulos> Correo </th>
+                    <td mat-cell *matCellDef="let element"> {{element.Correo}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="demo-acciones">
+                    <th mat-header-cell *matHeaderCellDef appTamTitulos> Opciones (Modificar/Eliminar Alumno) </th>
+                    <td mat-cell *matCellDef="let element">
+                        <button mat-icon-button color="primary" (click)="editStudent(element)">
+                            <mat-icon>edit</mat-icon>
+                        </button>
+                        <button mat-icon-button color="warn" (click)="deleteStudent(element)">
+                            <mat-icon>delete</mat-icon>
+                        </button>
+                    </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+        </div>
+    </mat-tab>
+    <mat-tab label="Agregar o Modificar estudiante">
+            <app-student-form (formularioEnviado)="handleFormSubmission($event)"></app-student-form>
+    </mat-tab>
+</mat-tab-group>

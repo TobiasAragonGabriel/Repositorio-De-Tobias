@@ -1,0 +1,30 @@
+<mat-drawer-container class="dashboard-container" autosize>
+    <div class="dashboard-sidenav-contenido">
+        <mat-toolbar style="background-color: rgb(0, 122, 96);">
+            <button type="button" mat-icon-button style="color:rgb(255, 255, 255);" (click)="drawer.toggle()"
+                aria-label="Example icon button with a menu icon">
+                <mat-icon>menu</mat-icon>
+            </button>
+
+            
+
+            <span class="logo">Aula de Tobias Aragon</span>
+            <span class="example-spacer" style="color:white;"></span>
+
+        </mat-toolbar>
+    </div>
+
+    <mat-drawer #drawer class="dashboard-sidenav" mode="side">
+        <div class="row">
+            <img src="../../../assets/img/Avatar.png" class="avatar">
+            <p style="color:white; font-size: 20px; text-align: center;">Bienvenido Usuario</p>
+        </div>
+        <div class="row" style="margin-top: 50px; display: flex; align-items: center;">
+            
+            <span class="opciones" style="color: white; font-size: 20px; margin-left: 10px; vertical-align: middle; margin-top: 25px;">ABM Estudiantes</span>
+        </div>
+    </mat-drawer>
+    <div class="p-5">
+        <app-students></app-students>
+    </div>
+</mat-drawer-container>
